@@ -6,4 +6,14 @@
 # For s = "2[b3[a]]", the output should be decodeString(s) = "baaabaaa"
 
 def decodeString(s):
-    
+    decoded_string = []
+    k = []
+    try:
+        for value in s:
+            if type(int(value)) == int:
+                k.append(value)
+            else:
+                continue
+        print(k)
+    except ValueError:
+        continue
