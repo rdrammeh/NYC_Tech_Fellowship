@@ -12,7 +12,7 @@ def sortByStrings(s, t):
                 sorted.append(s_letter)
             else:
                 continue
-    print(' '.join(sorted))
+    print(''.join(sorted))
 
 sortByStrings('weather', 'therapyw')
 sortByStrings('good', 'odg')
