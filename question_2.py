@@ -6,17 +6,17 @@
 # For s = "2[b3[a]]", the output should be decodeString(s) = "baaabaaa"
 
 def decodeString(s):
-    decoded_string = []
-    k = []
-    try:
-        for value in s:
-            if type(int(value)) == int:
-                k.append(int(value))
-            else:
-                continue
-    except ValueError:
-        pass
-    print(k)
+    coded_string = []
+    for value in s:
+        coded_string.append(value)
+
+    k = int(coded_string[0])
+    coded_string.remove(coded_string[0])
+    new_string = k * coded_string
+    decoded_string = [l for l in new_string if l == '[' or l == ']' new_string.remove(l)]
+    print(decoded_string)
+
 
 #Runner Code
 decodeString('4[ab]')
+#decodeString('2[b3[a]]')
