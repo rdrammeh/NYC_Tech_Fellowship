@@ -19,26 +19,21 @@
 #     print(''.join(decoded_string))
 
 
+
 def decodeString(s):
     coded_string = []
     for value in s:
         coded_string.append(value)
 
-    decoded = []
-    try:
-        for i in range(0, len(coded_string)):
-            if type(int(coded_string[i])) == int:
-                k = int(coded_string[i])
-                if coded_string[i + 1] == '[':
-                    decoded.append(k * coded_string[i + 1:])
-                else:
-                    continue
-            else:
-                continue
-    except ValueError:
-        pass
-
-    print(decoded)
+    i = 0
+    while i < len(coded_string):
+        if coded_string[i] in '0123456789':
+            k = int(coded_string[i])
+            print(k)
+            i += 1
+        else:
+            print("not a number")
+            i += 1
 
 
 
