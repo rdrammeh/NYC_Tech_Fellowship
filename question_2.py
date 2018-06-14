@@ -24,7 +24,23 @@ def decodeString(s):
     for value in s:
         coded_string.append(value)
 
-    print(coded_string)
+    decoded = []
+    try:
+        for i in range(0, len(coded_string)):
+            if type(int(coded_string[i])) == int:
+                k = int(coded_string[i])
+                if coded_string[i + 1] == '[':
+                    decoded.append(k * coded_string[i + 1:])
+                else:
+                    continue
+            else:
+                continue
+    except ValueError:
+        pass
+
+    print(decoded)
+
+
 
 #Runner Code
 #decodeString('4[ab]')
