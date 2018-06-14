@@ -14,9 +14,9 @@ def decodeString(s):
                 k.append(value)
             else:
                 continue
-        print(k)
     except ValueError:
         pass
+    print(k)
 
 #Runner Code
 decodeString('4[ab]')
