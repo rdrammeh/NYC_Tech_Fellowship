@@ -15,3 +15,4 @@ def sortByStrings(s, t):
     print(*sorted)
 
 sortByStrings('weather', 'therapyw')
+sortByStrings('good', 'odg')
