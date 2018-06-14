@@ -6,4 +6,12 @@
 
 def sortByStrings(s, t):
     sorted = []
-    
+    for t_letter in t:
+        for s_letter in s:
+            if s_letter == t_letter:
+                sorted.append(s_letter)
+            else:
+                continue
+    print(*sorted)
+
+sortByStrings('weather', 'therapyw')
