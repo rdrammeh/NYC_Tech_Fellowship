@@ -12,9 +12,9 @@ def decodeString(s):
 
     k = int(coded_string[0])
     coded_string.remove(coded_string[0])
-    new_string = k * coded_string
-    decoded_string = [l for l in new_string if l == '[' or l == ']' new_string.remove(l)]
-    print(decoded_string)
+    coded_string *= k
+    decoded_string = [l for l in coded_string if l != '[' and l != ']']
+    print(''.join(decoded_string))
 
 
 #Runner Code
