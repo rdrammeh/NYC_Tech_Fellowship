@@ -16,4 +16,7 @@ def decodeString(s):
                 continue
         print(k)
     except ValueError:
-        continue
+        pass
+
+#Runner Code
+decodeString('4[ab]')
