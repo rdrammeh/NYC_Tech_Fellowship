@@ -5,18 +5,27 @@
 # For s = "4[ab]", the output should be decodeString(s) = "abababab"
 # For s = "2[b3[a]]", the output should be decodeString(s) = "baaabaaa"
 
+
+#Successful run for decodeString('4[ab]'). Will you this as guide for the second runner code
+# def decodeString(s):
+#     coded_string = []
+#     for value in s:
+#         coded_string.append(value)
+#
+#     k = int(coded_string[0])
+#     coded_string.remove(coded_string[0])
+#     coded_string *= k
+#     decoded_string = [l for l in coded_string if l != '[' and l != ']']
+#     print(''.join(decoded_string))
+
+
 def decodeString(s):
     coded_string = []
     for value in s:
         coded_string.append(value)
 
-    k = int(coded_string[0])
-    coded_string.remove(coded_string[0])
-    coded_string *= k
-    decoded_string = [l for l in coded_string if l != '[' and l != ']']
-    print(''.join(decoded_string))
-
+    print(coded_string)
 
 #Runner Code
-decodeString('4[ab]')
-#decodeString('2[b3[a]]')
+#decodeString('4[ab]')
+decodeString('2[b3[a]]')
