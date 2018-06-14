@@ -21,20 +21,35 @@
 
 
 def decodeString(s):
-    coded_string = []
-    for value in s:
-        coded_string.append(value)
+    coded_list = [value for value in s if value != '[' and value != ']']
 
+
+    current_list = coded_list
     i = 0
-    while i < len(coded_string):
-        if coded_string[i] in '0123456789':
-            k = int(coded_string[i])
-            print(k)
-            i += 1
-        else:
-            print("not a number")
-            i += 1
 
+    # for value in reversed(current_list):
+    #     if value in '0123456789':
+    #         k = int(value)
+    #         current_index = current_list.index(value)
+    #         word = k * current_list[current_index:]
+    #         print(''.join(word))
+    #     else:
+    #         pass
+
+
+    while i < len(coded_list):
+        print("The current string is ", ''.join(current_list))
+        if current_list[i] in '0123456789':
+            k = int(current_list[i])
+            if current_list[i + 1] == '[':
+                decoded_list = k * current_list[i + 1:]
+                current_list = []
+                current_list += decoded_list
+                i += 1
+            else:
+                i += 1
+        else:
+            i += 1
 
 
 #Runner Code
