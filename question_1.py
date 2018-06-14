@@ -3,3 +3,7 @@
 # You can assume t will not have repetitive characters.
 # For s = "weather" and t = "therapyw", the output should be sortByString(s, t) = "theeraw".
 # For s = "good" and t = "odg", the output should be sortByString(s, t) = "oodg".
+
+def sortByStrings(s, t):
+    sorted = []
+    
