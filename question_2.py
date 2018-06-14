@@ -11,7 +11,7 @@ def decodeString(s):
     try:
         for value in s:
             if type(int(value)) == int:
-                k.append(value)
+                k.append(int(value))
             else:
                 continue
     except ValueError:
