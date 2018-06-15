@@ -41,16 +41,18 @@ def decodeString(s):
                         multipler += coded_list[x]
                         break
             new_list = k * multipler
-            print(new_list)
-            # if new_list in '0123456789':
-            #     decodeString(new_list)
-            # else:
-            #     decode = [l for l in new_list if l != '[' and l != ']']
-            #     print(''.join(decode))
-        i += 1
+            print(type(new_list))
+        break
+
+    if '0123456789' in new_list:
+        decodeString(new_list)
+    else:
+        decode = [l for l in new_list if l != '[' and l != ']']
+        print(''.join(decode))
+
 
 
 
 #Runner Code
-#decodeString('4[ab]')
+decodeString('4[ab]')
 decodeString('2[b3[a]]')
