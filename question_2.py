@@ -20,39 +20,61 @@
 
 
 
-def decodeString(s):
-    coded_list = [l for l in s]
+# def decodeString(s):
+#     coded_list = [l for l in s]
+#
+#     coded_list
+#     i = 0
+#     x = 1
+#     multipler = ""
+#
+#     while i < len(coded_list):
+#         if coded_list[i] in '0123456789':
+#             k = int(coded_list[i])
+#             if coded_list[x] == '[':
+#                 coded_list.remove(coded_list[x])
+#                 while x < len(coded_list):
+#                     if coded_list[x] != ']':
+#                         multipler += coded_list[x]
+#                         x += 1
+#                     else:
+#                         multipler += coded_list[x]
+#                         break
+#             new_string = k * multipler
+#             print(type(new_string))
+#         break
+#
+#     if additional_numbers(new_string):
+#         decodeString(new_string)
+#     else:
+#
+#     new_list = [l for l in new_string]
+#     z = 0
+#
+#     while z < len(new_list):
+#         if new_list[z] in '0123456789':
+#             decodeString(new_string)
+#     else:
+#         decode = [l for l in new_string if l != '[' and l != ']']
+#         print(''.join(decode))
 
-    coded_list
-    i = 0
-    x = 1
-    multipler = ""
 
-    while i < len(coded_list):
-        if coded_list[i] in '0123456789':
-            k = int(coded_list[i])
-            if coded_list[x] == '[':
-                coded_list.remove(coded_list[x])
-                while x < len(coded_list):
-                    if coded_list[x] != ']':
-                        multipler += coded_list[x]
-                        x += 1
-                    else:
-                        multipler += coded_list[x]
-                        break
-            new_list = k * multipler
-            print(type(new_list))
-        break
+def additional_numbers(l):
+    new_list = [a for a in l]
+    z = 0
 
-    if '0123456789' in new_list:
-        decodeString(new_list)
-    else:
-        decode = [l for l in new_list if l != '[' and l != ']']
-        print(''.join(decode))
-
-
+    while z < len(new_list):
+        if new_list[z] in '0123456789':
+            return True
+            break
+        else:
+            z += 1
+    return False
 
 
 #Runner Code
-decodeString('4[ab]')
-decodeString('2[b3[a]]')
+# decodeString('4[ab]')
+# decodeString('2[b3[a]]')
+print(additional_numbers('4[ab]'))
+print(additional_numbers('2[b3[a]]'))
+print(additional_numbers('[b[a]]'))
