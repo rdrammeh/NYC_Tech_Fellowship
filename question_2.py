@@ -22,35 +22,26 @@
 
 def decodeString(s):
     coded_list = [value for value in s]
-    print(coded_list)
+    #print(coded_list)
 
-    while i < len(coded_list):
+    current_list = coded_list
+    i = 0
+    x = 1
+    multipler = ""
+
+    while i < len(current_list):
         if current_list[i] in '0123456789':
             k = int(current_list[i])
-            if current_list[i + 1]
-
-
-
-    # current_list = coded_list
-    # i = 0
-    # x = 1
-    # repeat = ""
-    # decoded = ""
-    #
-    # while i < len(coded_list):
-    #
-    #         k = int(current_list[i])
-    #         repeat += ''.join(current_list[i + 1:])
-    #         new = k * repeat
-    #         current_list = []
-    #         current_list += new
-    #         break
-    #     else:
-    #         i += 1
-    # print(current_list)
-
-    #decodeString(current_list)
-
+            if current_list[x] == '[':
+                while x < len(current_list):
+                    if current_list[x] != ']':
+                        multipler += current_list[x]
+                        x += 1
+                    else:
+                        multipler += current_list[x]
+                        break
+            print(multipler)
+        i += 1
 
 
 #Runner Code
