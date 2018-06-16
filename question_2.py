@@ -18,20 +18,32 @@
 #     decoded_string = [l for l in coded_string if l != '[' and l != ']']
 #     print(''.join(decoded_string))
 
+def decodeString(s):
+    coded_list = [l for l in s]
 
+    decode = ""
 
-# def decodeString(s):
-#     coded_list = [l for l in s]
+    for l in coded_list:
+        if l in '0123456789':
+            k = int(l)
+            if next(coded_list) == '[':
+                print("Next one is [")
+        else:
+            decode += l
+
+# def decoderLoop(a):
+#     coded_list = [l for l in a]
 #
-#     coded_list
 #     i = 0
 #     x = 1
 #     multipler = ""
+#     decode = ""
+#     new_string = ""
 #
 #     while i < len(coded_list):
 #         if coded_list[i] in '0123456789':
 #             k = int(coded_list[i])
-#             if coded_list[x] == '[':
+#             if coded_list[i + 1] == '[':
 #                 coded_list.remove(coded_list[x])
 #                 while x < len(coded_list):
 #                     if coded_list[x] != ']':
@@ -39,42 +51,62 @@
 #                         x += 1
 #                     else:
 #                         multipler += coded_list[x]
+#                         leftover = ''.join(coded_list[x + 1:])
 #                         break
-#             new_string = k * multipler
-#             print(type(new_string))
-#         break
+#                 new_string = k * multipler
+#                 decode += k * multipler
+#                 decode += leftover
+#                 return decode
+#             break
+#         else:
+#             decode += coded_list[i]
+#             i += 1
 #
-#     if additional_numbers(new_string):
-#         decodeString(new_string)
+#
+#
+#
+#
+#
+#
+#
+# def decodeString(s):
+#     if moreNumbers(s):
+#         print("HIT more number true")
+#         return decoderLoop(s)
 #     else:
+#         print("NOT hit more number true")
+#         decode_string = [l for l in s if l != '[' and l != ']']
+#         print("Decoded words is ", ''.join(decode_string))
+#     # coded = decodeLoop(s)
+#     # print(type(coded))
+#     # print("Run decode loop and return is ", coded)
+#     # if moreNumbers(coded):
+#     #     print("Yes there are more numbers...")
+#     #     again = decodeLoop("b3[a]b3[a]")
+#     #     print(again)
+#     #     #decodeString(again)
+#     # else:
+#     #     print("No more numbers")
+#     #     decode = [l for l in coded if l != '[' and l != ']']
+#     #     print("Decoded words is ", ''.join(decode))
 #
-#     new_list = [l for l in new_string]
+#
+# def moreNumbers(l):
+#     new_list = [a for a in l]
 #     z = 0
 #
 #     while z < len(new_list):
 #         if new_list[z] in '0123456789':
-#             decodeString(new_string)
-#     else:
-#         decode = [l for l in new_string if l != '[' and l != ']']
-#         print(''.join(decode))
-
-
-def additional_numbers(l):
-    new_list = [a for a in l]
-    z = 0
-
-    while z < len(new_list):
-        if new_list[z] in '0123456789':
-            return True
-            break
-        else:
-            z += 1
-    return False
+#             return True
+#             break
+#         else:
+#             z += 1
+#     return False
 
 
 #Runner Code
-# decodeString('4[ab]')
-# decodeString('2[b3[a]]')
-print(additional_numbers('4[ab]'))
-print(additional_numbers('2[b3[a]]'))
-print(additional_numbers('[b[a]]'))
+print(decodeString('2[b3[a]]'))
+print(decodeString('4[ab]'))
+# print(additional_numbers('4[ab]'))
+# print(additional_numbers('2[b3[a]]'))
+# print(additional_numbers('[b[a]]'))
