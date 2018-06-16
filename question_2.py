@@ -20,16 +20,33 @@
 
 def decodeString(s):
     coded_list = [l for l in s]
-
     decode = ""
+    factor = ""
+    remainder_string = ""
 
-    for l in coded_list:
-        if l in '0123456789':
-            k = int(l)
-            if next(coded_list) == '[':
-                print("Next one is [")
+    for i in range(len(coded_list)):
+        if coded_list[i] in '0123456789':
+            k = int(coded_list[i])
+            print("k is ", k)
+            if coded_list[i + 1] == '[':
+                print("We removed ", coded_list[i + 1])
+                coded_list.remove('[')
+                for x in range(len(coded_list)):
+                    if coded_list[x + 1] != ']':
+                        factor += coded_list[x + 1]
+                    else:
+                        factor += coded_list[x + 1]
+                        remainder_string += ''.join(coded_list[x + 1:])
+                        break
+                print("factor is ", factor)
+                product = k * factor
+                print("product is ", product)
+                decode += k * factor
+                decode += remainder_string
+                print("The new coded list is", decode)
+            break
         else:
-            decode += l
+            decode += coded_list[i]
 
 # def decoderLoop(a):
 #     coded_list = [l for l in a]
@@ -105,8 +122,9 @@ def decodeString(s):
 
 
 #Runner Code
-print(decodeString('2[b3[a]]'))
-print(decodeString('4[ab]'))
+decodeString('2[b3[a]]')
+decodeString('b3[a]b3[a]]]')
+#print(decodeString('4[ab]'))
 # print(additional_numbers('4[ab]'))
 # print(additional_numbers('2[b3[a]]'))
 # print(additional_numbers('[b[a]]'))
