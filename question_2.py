@@ -23,30 +23,52 @@ def decodeString(s):
     decode = ""
     factor = ""
     remainder_string = ""
-
+    decoded_string = ""
+    loop = 0
     for i in range(len(coded_list)):
         if coded_list[i] in '0123456789':
             k = int(coded_list[i])
             print("k is ", k)
             if coded_list[i + 1] == '[':
-                print("We removed ", coded_list[i + 1])
-                coded_list.remove('[')
+                print("Index of ", coded_list[i],  coded_list.index(coded_list[i]))
+                print(" after 'k' is ", coded_list[i + 1])
+                coded_list.remove(coded_list[i])
                 for x in range(len(coded_list)):
                     if coded_list[x + 1] != ']':
                         factor += coded_list[x + 1]
                     else:
                         factor += coded_list[x + 1]
-                        remainder_string += ''.join(coded_list[x + 1:])
+                        remainder_string += ''.join(coded_list[i + 2:])
+                        print("coded_list[x + 1:] is ", coded_list[x + 2:])
+                        print("remainder string is now ", remainder_string)
                         break
+                decoded_string += decode.replace('[', "")
+                print("decode is ", decoded_string)
                 print("factor is ", factor)
                 product = k * factor
                 print("product is ", product)
-                decode += k * factor
-                decode += remainder_string
-                print("The new coded list is", decode)
+                decoded_string += k * factor
+                decoded_string += remainder_string
+                print("The new coded list is", decoded_string)
+                loop += 1
             break
         else:
-            decode += coded_list[i]
+            decoded_string += coded_list[i]
+
+    moreNumbers = False
+
+    for letter in decoded_string:
+        if letter in '0123456789':
+            moreNumbers = True
+
+    if moreNumbers:
+        return decodeString(decoded_string)
+        print(" we're getting here!")
+    else:
+        answer = [l for l in decoded_string if l != '[' and l != ']']
+        print(''.join(answer))
+        print("we looped ", loop)
+
 
 # def decoderLoop(a):
 #     coded_list = [l for l in a]
@@ -123,8 +145,7 @@ def decodeString(s):
 
 #Runner Code
 decodeString('2[b3[a]]')
-decodeString('b3[a]b3[a]]]')
-#print(decodeString('4[ab]'))
+# decodeString('4[ab]')
 # print(additional_numbers('4[ab]'))
 # print(additional_numbers('2[b3[a]]'))
 # print(additional_numbers('[b[a]]'))
