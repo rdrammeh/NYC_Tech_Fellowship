@@ -16,12 +16,15 @@ def decodeString(s):
             k = int(coded_list[i])
             if coded_list[i + 1] == '[':
                 coded_list.remove(coded_list[i])
+                x = 0
                 for num in range(len(coded_list[i + 1:])):
                     if coded_list[num + 1] != ']':
                         factor += coded_list[num + 1]
+                        x += 1
                     else:
                         factor += coded_list[num + 1]
-                        remainder_string += ''.join(coded_list[num + 1:])
+                        index = x + i
+                        remainder_string += ''.join(coded_list[index + 1:])
                         break
                 decode += k * factor
                 decode += remainder_string
