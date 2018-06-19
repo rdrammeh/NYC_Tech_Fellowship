@@ -11,5 +11,25 @@
 # 1¢, 3¢
 # 2¢, 2¢
 
-def changePossibilities(amount, denominations):
-    
+def changePossibilities(value, coins):
+    combinations = [0] * (value + 1)
+    amount = range(len(coins) + 1)
+    combinations[0] = 1
+    print(combinations)
+    print(amount)
+
+    # for coin in coins:
+    #     for value in amount:
+    #         if value >= coin:
+    #             combinations[value] += combinations[value - coin]
+    #         else:
+    #             continue
+    # print(combinations[-1])
+
+
+
+
+
+#Driver Code
+changePossibilities(4, [1,2,3])
+#changePossibilities(10, [1,2,4])
