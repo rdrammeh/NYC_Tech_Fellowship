@@ -16,29 +16,28 @@ def decodeString(s):
             k = int(coded_list[i])
             if coded_list[i + 1] == '[':
                 coded_list.remove(coded_list[i])
-                x = 0
+                index_moved = 0
                 for num in range(len(coded_list[i + 1:])):
                     if coded_list[num + 1] != ']':
                         factor += coded_list[num + 1]
-                        x += 1
+                        index_moved += 1
                     else:
                         factor += coded_list[num + 1]
-                        index = x + i
-                        remainder_string += ''.join(coded_list[index + 1:])
+                        new_index = i + index_moved
+                        remainder_string += ''.join(coded_list[new_index + 1:])
                         break
-                decode += k * factor
-                decode += remainder_string
+                decode += k * factor + remainder_string
             break
         else:
             decode += coded_list[i]
 
-    moreNumbers = False
+    more_numbers = False
 
-    for letter in decode:
-        if letter in '0123456789':
-            moreNumbers = True
+    for str in decode:
+        if str in '0123456789':
+            more_numbers = True
 
-    if moreNumbers:
+    if more_numbers:
         return decodeString(decode)
     else:
         answer = [l for l in decode if l != '[' and l != ']']
@@ -47,6 +46,6 @@ def decodeString(s):
 
 
 
-#Runner Code
+#Driver Code
 decodeString('2[b3[a]]')
 decodeString('4[ab]')

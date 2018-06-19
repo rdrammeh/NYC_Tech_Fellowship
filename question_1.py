@@ -14,6 +14,6 @@ def sortByStrings(s, t):
                 continue
     print(''.join(sorted))
 
-# Runner Code
+#Driver Code
 sortByStrings('weather', 'therapyw')
 sortByStrings('good', 'odg')
