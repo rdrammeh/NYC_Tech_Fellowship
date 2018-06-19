@@ -9,9 +9,9 @@ def decodeString(s):
     coded_list = [l for l in s]
     decode = ""
     factor = ""
-    remainder_string = ""
 
     for i in range(len(coded_list)):
+        remainder_string = ""
         if coded_list[i] in '0123456789':
             k = int(coded_list[i])
             if coded_list[i + 1] == '[':
@@ -28,7 +28,6 @@ def decodeString(s):
             break
         else:
             decode += coded_list[i]
-            continue
 
     moreNumbers = False
 
